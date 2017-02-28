@@ -1,0 +1,23 @@
+
+
+/////////////////////////////////////////////////////////
+201611xx sam
+1,add iap code support
+
+/////////////////////////////////////////////////////////
+20161118 david
+1£¬add compile date and time string
+2£¬add version string "pi-desktop_iap_revxx", the string 
+    is the name of the released s19 file
+
+/////////////////////////////////////////////////////////
+20161121 david
+1£¬change the close pin action from reverse(both edge) to high-pulse
+
+
+
+/////////////////////////////////////////////////////////
+20161215 jerry
+1£¬add code to write app version to eeprom(iap_flash.c; line:136);
+
+

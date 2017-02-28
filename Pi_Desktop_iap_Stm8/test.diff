@@ -1,0 +1,28 @@
+diff --git a/main.c b/main.c
+index 2e5f6ba..b92959a 100644
+--- a/main.c
++++ b/main.c
+@@ -38,7 +38,7 @@ void MoveFromBackToApp(void)
+ 	POWER_GPIO_PORT->CR1 |= (uint8_t)POWER_GPIO_PINS;
+ 	POWER_GPIO_PORT->CR2 &= (uint8_t)(~(POWER_GPIO_PINS));
+ 	
+-	POWER_GPIO_PORT->ODR |= (uint8_t)POWER_GPIO_PINS;
++	LED_GPIO_PORT->CR2 &= (uint8_t)(~(POWER_GPIO_PINS));
+ 
+ 	LED_GPIO_PORT->CR2 &= (uint8_t)(~(LED_GPIO_PINS));
+ 	LED_GPIO_PORT->ODR &= (uint8_t)(~(LED_GPIO_PINS));
+@@ -74,6 +74,14 @@ void MoveFromBackToApp(void)
+ 
+ 		while ((FLASH->IAPSR & (uint8_t)FLASH_FLAG_HVOFF) == RESET)
+ 		{}
++		if (i%3)
++		{
++			LED_GPIO_PORT->ODR |= (uint8_t)LED_GPIO_PINS;
++		}
++		else
++		{
++			LED_GPIO_PORT->ODR &= (uint8_t)(~LED_GPIO_PINS);
++		}
+ 	}
+ 
+ 	for(i=0;i<10;i++)
